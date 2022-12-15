@@ -8,7 +8,7 @@ public class InputView {
 
     public String inputNumber() {
         System.out.print(MESSAGE_INPUT_NUMBER);
-        String userNumber = Console.readLine();
-        return userNumber;
+        String input = Console.readLine();
+        return input;
     }
 }

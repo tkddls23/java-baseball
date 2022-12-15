@@ -11,13 +11,14 @@ public class InputView {
     public String readUserNumber() {
         System.out.print(MESSAGE_INPUT_NUMBER);
         String userNumber = Console.readLine();
-        InputViewValidation.checkInputValid(userNumber);
+        InputViewValidation.checkNumberValid(userNumber);
         return userNumber;
     }
 
     public String readGameCommand() {
         System.out.println(MESSAGE_INPUT_EXIT);
         String command = Console.readLine();
+        InputViewValidation.checkCommandValid(command);
         return command;
     }
 }

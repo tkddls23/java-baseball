@@ -5,18 +5,23 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 import static baseball.constant.ErrorConstant.*;
-import static baseball.constant.GameConstant.CNT_NUMBER;
-import static baseball.constant.GameConstant.REGAX_NUMBER;
+import static baseball.constant.GameConstant.*;
 
 public class InputViewValidation {
     private static final Pattern isNumber = Pattern.compile(REGAX_NUMBER);
 
-    public static void checkInputValid(String input) {
-        checkInputDigit(input);
-        checkInputLengthThree(input);
-        checkInputRange(input);
-        checkInputDuplicate(input);
+    public static void checkNumberValid(String userNumber) {
+        checkInputDigit(userNumber);
+        checkInputLengthThree(userNumber);
+        checkInputRange(userNumber);
+        checkInputDuplicate(userNumber);
     }
+    public static void checkCommandValid(String command) {
+        if (!command.equals(START_CODE) && !command.equals(EXIT_CODE)) {
+            throw new IllegalArgumentException(ERROR_NOT_VALID_GAME_COMMAND);
+        }
+    }
+
     private static void checkInputDigit(String input) {
         for (int i = 0; i < input.length(); i++) {
             if (!Character.isDigit(input.charAt(i)))

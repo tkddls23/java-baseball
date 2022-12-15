@@ -15,6 +15,10 @@ public class Computer {
         return this.computerNumbers;
     }
 
+    public void generateTestNumber(List<Integer> testNumbers) {
+        this.computerNumbers = testNumbers;
+    }
+
     public void generateRandomNumber() {
         this.computerNumbers = new ArrayList<>();
         while (computerNumbers.size() < CNT_NUMBER) {

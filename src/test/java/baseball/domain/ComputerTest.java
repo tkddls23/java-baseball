@@ -1,6 +1,8 @@
 package baseball.domain;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.HashSet;
 import java.util.List;
@@ -33,5 +35,13 @@ class ComputerTest {
 
         //then
         assertThat(numSet.size()).isEqualTo(numberList.size());
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"123:3스트라이크", "132:2볼 1스트라이크", "456:낫싱"}, delimiter = ':')
+    void getHintTest(String input, String output) {
+        computer.generateTestNumber(List.of(1, 2, 3));
+
+        assertThat(computer.getHint(input)).isEqualTo(output);
     }
 }

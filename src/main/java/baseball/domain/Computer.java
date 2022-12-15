@@ -10,6 +10,10 @@ import static baseball.constant.GameConstant.*;
 public class Computer {
     private List<Integer> computerNumbers;
 
+    public List<Integer> getComputerNumbers() {
+        return this.computerNumbers;
+    }
+
     public void generateRandomNumber() {
         this.computerNumbers = new ArrayList<>();
         while (computerNumbers.size() < CNT_NUMBER) {

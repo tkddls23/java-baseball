@@ -1,9 +1,13 @@
 package baseball.validation;
 
-import static baseball.constant.ErrorConstant.ERROR_NON_INTEGER;
-import static baseball.constant.ErrorConstant.ERROR_NOT_VALID_LENGTH;
+import java.util.regex.Pattern;
+
+import static baseball.constant.ErrorConstant.*;
+import static baseball.constant.GameConstant.CNT_NUMBER;
+import static baseball.constant.GameConstant.REGAX_NUMBER;
 
 public class InputViewValidation {
+    private static final Pattern isNumber = Pattern.compile(REGAX_NUMBER);
 
     private void checkInputDigit(String input) {
         for (int i = 0; i < input.length(); i++) {
@@ -13,8 +17,14 @@ public class InputViewValidation {
     }
 
     private void checkInputLengthThree(String input) {
-        if (input.length() != 3) {
+        if (input.length() != CNT_NUMBER) {
             throw new IllegalArgumentException(ERROR_NOT_VALID_LENGTH);
+        }
+    }
+
+    private void checkInputRange(String input) {
+        if (!isNumber.matcher(input).matches()) {
+            throw new IllegalArgumentException(ERROR_NOT_VALID_RANGE);
         }
     }
 }
